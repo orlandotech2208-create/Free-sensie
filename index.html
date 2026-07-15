@@ -72,6 +72,28 @@
   }
   .music-btn svg { width:18px; height:18px; }
   .music-btn:hover { background:var(--accent); color:#fff; }
+
+  /* ─── SPLASH INTRO ─── */
+  .splash-screen {
+    position:fixed; inset:0; z-index:9999; background:#0B0D12;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transition:opacity 0.8s ease;
+  }
+  .splash-screen.fade-out { opacity:0; pointer-events:none; }
+  .splash-logo {
+    width:140px; height:140px; border-radius:50%; object-fit:cover;
+    border:2px solid var(--accent); box-shadow:0 0 34px rgba(255,90,49,0.5);
+    opacity:0; animation:splashIn 0.8s ease forwards;
+  }
+  .splash-caption {
+    margin-top:16px; font-family:'Rajdhani',sans-serif; font-weight:600; font-size:13px;
+    letter-spacing:1.5px; color:var(--text-dim); text-transform:uppercase;
+    opacity:0; animation:splashIn 0.8s ease forwards 0.2s;
+  }
+  @keyframes splashIn {
+    from { opacity:0; transform:scale(0.85); }
+    to { opacity:1; transform:scale(1); }
+  }
   .brand-logo { display:block; width:110px; height:110px; border-radius:50%; margin:0 auto 14px; border:2px solid var(--accent); box-shadow:0 0 24px rgba(255,90,49,0.45); object-fit:cover; }
   .nine-ring svg { width:100%; height:100%; }
   .hero-title {
@@ -307,6 +329,12 @@
 </head>
 <body>
 
+<!-- SPLASH INTRO -->
+<div class="splash-screen" id="splash-screen">
+  <img id="splash-logo" class="splash-logo" alt="Orlando Tech"/>
+  <div class="splash-caption">Créé par Orlando Tech</div>
+</div>
+
 <canvas id="particles"></canvas>
 
 <!-- TOP GUIDE BUTTON -->
@@ -372,8 +400,16 @@
 <div class="ad-slot">
   <div class="ad-slot-label">Publicité</div>
   <div class="ad-slot-frame" id="ad-slot-home">
-    <!-- AdSense ad unit goes here once approved -->
-    <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4846886117824372"></ins>
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'b27d3906e565cffd4a998846e1c66ed2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/b27d3906e565cffd4a998846e1c66ed2/invoke.js"></script>
   </div>
 </div>
 <div class="info-card">
@@ -464,8 +500,16 @@
   <div class="ad-slot">
   <div class="ad-slot-label">Publicité</div>
   <div class="ad-slot-frame" id="ad-slot-android">
-    <!-- AdSense ad unit goes here once approved -->
-    <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4846886117824372"></ins>
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'b27d3906e565cffd4a998846e1c66ed2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/b27d3906e565cffd4a998846e1c66ed2/invoke.js"></script>
   </div>
 </div>
 <div class="guide-card" id="guide-card-android">
@@ -551,8 +595,16 @@
   <div class="ad-slot">
   <div class="ad-slot-label">Publicité</div>
   <div class="ad-slot-frame" id="ad-slot-iphone">
-    <!-- AdSense ad unit goes here once approved -->
-    <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4846886117824372"></ins>
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'b27d3906e565cffd4a998846e1c66ed2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/b27d3906e565cffd4a998846e1c66ed2/invoke.js"></script>
   </div>
 </div>
 <div class="guide-card" id="guide-card-iphone">
@@ -618,8 +670,16 @@
   <div class="ad-slot">
   <div class="ad-slot-label">Publicité</div>
   <div class="ad-slot-frame" id="ad-slot-pc">
-    <!-- AdSense ad unit goes here once approved -->
-    <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4846886117824372"></ins>
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'b27d3906e565cffd4a998846e1c66ed2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/b27d3906e565cffd4a998846e1c66ed2/invoke.js"></script>
   </div>
 </div>
 <div class="guide-card" id="guide-card-pc">
@@ -709,8 +769,16 @@
   <div class="ad-slot">
   <div class="ad-slot-label">Publicité</div>
   <div class="ad-slot-frame" id="ad-slot-contact">
-    <!-- AdSense ad unit goes here once approved -->
-    <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4846886117824372"></ins>
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'b27d3906e565cffd4a998846e1c66ed2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/b27d3906e565cffd4a998846e1c66ed2/invoke.js"></script>
   </div>
 </div>
 <div class="guide-card" id="guide-card-contact">
@@ -758,6 +826,18 @@
 </nav>
 
 <script>
+// ─── SPLASH INTRO ───
+(function(){
+  const splash = document.getElementById('splash-screen');
+  const splashLogo = document.getElementById('splash-logo');
+  const brandLogo = document.querySelector('.brand-logo');
+  if(brandLogo) splashLogo.src = brandLogo.src;
+  setTimeout(() => {
+    splash.classList.add('fade-out');
+    setTimeout(() => { splash.style.display = 'none'; }, 800);
+  }, 4000);
+})();
+
 // ─── AD INTERSTITIAL (shown right after a sensi is generated) ───
 let _adPendingCallback = null;
 let _adCountdownTimer = null;
