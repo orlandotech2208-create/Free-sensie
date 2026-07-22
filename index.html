@@ -1115,6 +1115,10 @@ const KNOWN_CUSTOM_MODELS = {
 function normalizeModelName(name){
   return name.toLowerCase().replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
 }
+function countLetters(name){
+  const m = name.match(/[a-zA-ZÀ-ÿ]/g);
+  return m ? m.length : 0;
+}
 function showCustomSensi_do(type){
   let inputId, resultId, prefix;
   if(type==='android'){ inputId='android-freeform'; resultId='android-sensi-result'; prefix='Sensi Pro'; }
@@ -1124,21 +1128,24 @@ function showCustomSensi_do(type){
   const name = document.getElementById(inputId).value.trim();
   if(!name){ return; }
   const el = document.getElementById(resultId);
-  const key = normalizeModelName(name);
-  const known = KNOWN_CUSTOM_MODELS[key];
 
-  if(known){
-    const v = {gen:vary(known.gen),pr:vary(known.pr),s2x:vary(known.s2x),
-               s4x:vary(known.s4x),snp:vary(known.snp),cam:vary(known.cam)};
-    el.innerHTML = buildSensiCard('Sensi Pro — '+known.label+' (Headshot)', v)
-      + `<button class="shuffle-btn" onclick="showCustomSensi('${type}')">Générer une autre variation</button>`;
+  if(countLetters(name) < 5){
+    el.innerHTML = `<div class="info-card">
+      <div class="info-title">Nom trop court</div>
+      <div class="info-desc">Entre le nom complet de ton téléphone (au moins 5 lettres) pour qu'on puisse générer ta sensi.</div>
+    </div>`;
     return;
   }
 
-  el.innerHTML = `<div class="info-card">
-    <div class="info-title">Pas encore disponible</div>
-    <div class="info-desc">On n'a pas encore de sensi optimisée pour "${name}" bro. On l'ajoute bientôt — en attendant, essaie un modèle de la liste ou contacte-nous sur WhatsApp.</div>
-  </div>`;
+  const key = normalizeModelName(name);
+  const known = KNOWN_CUSTOM_MODELS[key];
+  const base = known || DEFAULT_BASE;
+  const label = known ? known.label : name;
+
+  const v = {gen:vary(base.gen),pr:vary(base.pr),s2x:vary(base.s2x),
+             s4x:vary(base.s4x),snp:vary(base.snp),cam:vary(base.cam)};
+  el.innerHTML = buildSensiCard(prefix+' — '+label, v)
+    + `<button class="shuffle-btn" onclick="showCustomSensi('${type}')">Générer une autre variation</button>`;
 }
 function showCustomSensi(type){
   let inputId;
